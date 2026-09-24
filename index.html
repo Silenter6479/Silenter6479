@@ -3,276 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimorGameDev</title>
+    <title>Переход на другой сайт</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* Стандартный системный шрифт Windows 7 */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            /* Официальные обои Windows 7 (Harmony / Световые линии) */
-            background: #0d4a7a url('https://imgur.com') no-repeat center center fixed;
-            background-size: cover;
-            color: #1e395b;
-            line-height: 1.5;
-            padding: 30px 15px;
-        }
-
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        /* Эффект оригинального стекла Aero Glass с синеватым отливом */
-        header, section {
-            background: linear-gradient(to bottom, rgba(162, 212, 247, 0.45) 0%, rgba(110, 178, 227, 0.35) 100%);
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 8px; /* В Win7 скругления были более строгими */
-            padding: 25px;
-            margin-bottom: 25px;
-            /* Свечение границ и тень окна */
-            box-shadow: 0 10px 30px rgba(0, 30, 60, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                        0 0 2px rgba(255, 255, 255, 0.8);
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        header h1 {
-            font-size: 2.6rem;
-            color: #0b335c;
-            font-weight: 600;
-            /* Размытая тень текста, как на рабочем столе Windows 7 */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.9);
-        }
-
-        header h1 span {
-            color: #1a751a;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: #1a426a;
-            margin-top: 5px;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-        }
-
-        section h2 {
-            font-size: 1.4rem;
-            color: #042447;
-            margin-bottom: 20px;
-            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-            padding-bottom: 8px;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        /* Карточка папки/приложения Windows */
-        .game-card {
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid #a1b9d6;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .game-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 60, 120, 0.2);
-            border-color: #5593db;
-            background: rgba(255, 255, 255, 0.85);
-        }
-
-        /* Контейнер для вашего скриншота или арта */
-        .game-img-container {
-            width: 100%;
-            height: 160px;
-            background-color: #ccdbe8;
-            overflow: hidden;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #b8cfe5;
-        }
-
-        .game-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .game-info {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
         }
 
-        .game-info h3 {
-            color: #0b335c;
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-        }
-
-        .game-info p {
-            font-size: 0.95rem;
-            color: #334a61;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        /* Трёхмерные стеклянные кнопки с эффектом глянца при наведении */
-        .btn {
-            flex: 1;
+        .container {
             text-align: center;
-            padding: 10px;
-            border-radius: 3px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: all 0.15s;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.6s ease;
         }
 
-        /* Родная синяя системная кнопка Windows 7 */
-        .btn-primary {
-            background: linear-gradient(to bottom, #cedff2 0%, #b4d1ed 12%, #629cd6 50%, #4b89ca 51%, #417ebc 100%);
-            color: #0e2742;
-            border: 1px solid #3c6e9f;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(to bottom, #e3effa 0%, #cae1f5 12%, #7cb0e3 50%, #5b99db 51%, #4e8ccc 100%);
-            border-color: #467cb0;
+        h1 {
+            color: #222;
+            margin-bottom: 15px;
+            font-size: 28px;
         }
 
-        /* Серая стандартная кнопка */
-        .btn-secondary {
-            background: linear-gradient(to bottom, #f2f2f2 0%, #ebebeb 50%, #dddddd 51%, #cfcfcf 100%);
-            color: #333333;
-            border: 1px solid #a3a3a3;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+        p {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 16px;
         }
 
-        .btn-secondary:hover {
-            background: linear-gradient(to bottom, #f8f8f8 0%, #f0f0f0 50%, #e5e5e5 51%, #dadada 100%);
-            border-color: #8c8c8c;
+        button {
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.4);
         }
 
-        .contacts-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(30, 60, 114, 0.6);
         }
 
-        .contacts-list p {
-            font-weight: 500;
-        }
-
-        .contacts-list a {
-            color: #0e549c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contacts-list a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 0.85rem;
-            color: #d1e6f7;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-            font-weight: bold;
+        button:active {
+            transform: translateY(-1px);
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <header>
-            <h1><span>Simor</span>GameDev</h1>
-            <p>Делаю игры, делюсь прототипами и билдами</p>
-        </header>
-
-        <section id="games">
-            <h2>Мои проекты</h2>
-            <div class="games-grid">
-                <!-- Карточка игры 1 -->
-                <div class="game-card">
-                    <div class="game-img-container">
-                        <!-- Вставьте ссылку на фото игры вместо ССЫЛКА_НА_КАРТИНКУ_1 -->
-                        <img class="game-img" src="ССЫЛКА_НА_КАРТИНКУ_1" alt="Скриншот игры 1" onerror="this.src='https://imgur.com'">
-                    </div>
-                    <div class="game-info">
-                        <h3>Проект Один</h3>
-                        <p>Здесь будет описание моей первой игры. Напишу, про что она, какой тут жанр и почему в неё стоит поиграть.</p>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary" target="_blank">Запустить</a>
-                            <a href="#" class="btn btn-secondary" target="_blank">Скачать</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка игры 2 -->
-                <div class="game-card">
-                    <div class="game-img-container">
-                        <!-- Вставьте ссылку на фото игры вместо ССЫЛКА_НА_КАРТИНКУ_2 -->
-                        <img class="game-img" src="ССЫЛКА_НА_КАРТИНКУ_2" alt="Скриншот игры 2" onerror="this.src='https://imgur.com'">
-                    </div>
-                    <div class="game-info">
-                        <h3>Проект Два</h3>
-                        <p>А тут будет вторая игра или какой-нибудь интересный играбельный прототип, который я тестировал.</p>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary" target="_blank">Запустить</a>
-                            <a href="#" class="btn btn-secondary" target="_blank">Скачать</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Связь со мной</h2>
-            <div class="contacts-list">
-                <p>Telegram: <a href="#" target="_blank">@ваш_логин</a></p>
-                <p>Профиль на Itch.io: <a href="https://itch.io" target="_blank">simorgamedev.itch.io</a></p>
-                <p>Почта: <a href="mailto:pochta@mail.com">pochta@mail.com</a></p>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 SimorGameDev.</p>
-        </footer>
+        <h1>Переход на другой сайт 🌐</h1>
+        <p>Нажмите на кнопку, чтобы перейти на внешний сайт</p>
+        <button onclick="window.location.href='https://webhook.site/a66afc76-2def-42ee-80e4-2bc8f688b8a5'">
+            Перейти на Google →
+        </button>
     </div>
-
-</body>
-</html>
-
 </body>
 </html>
